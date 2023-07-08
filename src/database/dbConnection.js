@@ -15,5 +15,5 @@ import { MONGODB_URI } from "../config";
 //otra forma de conectar
 
 connect(MONGODB_URI)
-    .then((resp)=> console.log(`DB conectada en ${db.connection.name}`))
+    .then((resp)=> console.log(`DB conectada en ${resp.connection.name}`))
     .catch((error)=>console.log(error));
