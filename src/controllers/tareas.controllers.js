@@ -30,3 +30,21 @@ export const crearTareas = async (req, res)=>{
         })
     }
 }
+
+//controlador para borrar una tarea 
+
+export const borrarTarea = async (req,res)=>{
+    try {
+        //obtener el id y luego solicitar a moongoose el borrar
+        console.log(req.params.id)
+        await Tarea.findByIdAndDelete(req.params.id);
+        res.status(200).json({
+            mensaje: 'La tarea fue borrada'
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(404).json({
+            mensaje: 'Error al borrar la tarea'
+        })
+    }
+}
