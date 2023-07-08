@@ -2,7 +2,8 @@ import express from 'express';
 import cors from 'cors'
 import morgan from 'morgan';
 import * as dotenv from 'dotenv';
-import './src/database/dbConnection'
+import './src/database/dbConnection';
+import tareasRouter from './src/routes/tareas.routes';
 
 dotenv.config();//puedo leer variables de entorno
 //crear una instancia de express
@@ -22,6 +23,6 @@ app.use(morgan('dev')); //nos da una info extra en la terminal
 
 
 //rutas
-app.get('/prueba', (req, res)=>{
-    res.send('esto es una prueba de la peticion GET a mi backend');
-});
+//http://localhost:4000/apiLista/tareas 
+
+app.use("/apiLista", tareasRouter);
