@@ -1,10 +1,10 @@
 import { Router} from "express";
-import { borrarTarea, crearTareas, obtenerTareas } from "../controllers/tareas.controllers";
+import { borrarTarea, crearTareas, editarTarea, obtenerTareas, obtenerUnaTarea } from "../controllers/tareas.controllers";
 
 const router = Router();
 
 router.route('/tareas').get(obtenerTareas).post(crearTareas);
-router.route('/tareas/:id').delete(borrarTarea);
+router.route('/tareas/:id').delete(borrarTarea).put(editarTarea).get(obtenerUnaTarea);
 export default router;
 
 //app.get('/prueba', (req, res)=>{
